@@ -1,0 +1,6 @@
+name: KosameServices
+author: opewdziin
+website: kosameplugins.com
+version: 0.1
+
+main: com.kosame.pewd.services.Service

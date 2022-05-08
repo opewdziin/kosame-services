@@ -12,7 +12,7 @@
 	<artifactId>kosame-services</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>kosame-services</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Dependency on all plugins from Kosame Plugins</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
