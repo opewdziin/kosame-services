@@ -1,8 +1,11 @@
 package com.kosame.pewd.services.plugin;
 
+import com.kosame.pewd.services.plugin.config.FileUtils;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public abstract class KosameStarter extends JavaPlugin {
+
+    private FileUtils fileUtils;
 
     public KosameStarter() {
     }
@@ -30,4 +33,7 @@ public abstract class KosameStarter extends JavaPlugin {
         super.onEnable();
     }
 
+    public FileUtils getFileUtils() {
+        return this.fileUtils;
+    }
 }
