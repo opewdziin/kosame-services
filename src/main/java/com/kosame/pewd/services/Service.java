@@ -1,6 +1,7 @@
 package com.kosame.pewd.services;
 
 import com.kosame.pewd.services.plugin.KosameStarter;
+import com.kosame.pewd.services.plugin.config.KosameConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.SimpleCommandMap;
@@ -57,6 +58,19 @@ public class Service extends KosameStarter {
     public void disable() {
         getLogger().log(Level.SEVERE, "O plugin KosameService foi desligado.");
     }
+
+    private void roles() {
+        KosameConfig config = KosameConfig.getConfig(getInstance(), "", "roles");
+        for (String key : config.getSection("roles").getKeys(false)) {
+            String name = config.getString("roles." + key + ".name");
+            String prefix = config.getString("roles." + key + ".prefix");
+            String permission = config.getString("roles." + key + ".permission");
+            Boolean broadcast = config.getBoolean("roles." + key + ".broadcast");
+            Boolean alwaysVisible = config.getBoolean("roles." + key + ".alwaysVisible");
+        }
+
+    }
+
 
     public static Service getInstance() {
         return service;

@@ -17,8 +17,9 @@ import java.util.logging.Level;
 
 public class KosameConfig {
 
-    private KosameStarter starter;
-    private File file;
+    private static final Map<String, KosameConfig> cache = new HashMap<>();
+    private final KosameStarter starter;
+    private final File file;
     private YamlConfiguration config;
 
     private KosameConfig(KosameStarter starter, String path, String name) {
@@ -43,6 +44,14 @@ public class KosameConfig {
         } catch (IOException ex) {
             starter.getLogger().log(Level.SEVERE, "Um erro inesperado ocorreu ao criar a config \"" + file.getName() + "\": ", ex);
         }
+    }
+
+    public static KosameConfig getConfig(KosameStarter starter, String path, String name) {
+        if (!cache.containsKey(path + "/" + name)) {
+            cache.put(path + "/" + name, new KosameConfig(starter, path, name));
+        }
+
+        return cache.get(path + "/" + name);
     }
 
     public boolean createSection(String path) {
@@ -131,16 +140,6 @@ public class KosameConfig {
 
     public YamlConfiguration getRawConfig() {
         return this.config;
-    }
-
-    private static Map<String, KosameConfig> cache = new HashMap<>();
-
-    public static KosameConfig getConfig(KosameStarter starter, String path, String name) {
-        if (!cache.containsKey(path + "/" + name)) {
-            cache.put(path + "/" + name, new KosameConfig(starter, path, name));
-        }
-
-        return cache.get(path + "/" + name);
     }
 
 }
