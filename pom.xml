@@ -8,9 +8,9 @@
 		<version>2.6.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.kosame.pewd</groupId>
+	<groupId>com.kosame.pewd.services</groupId>
 	<artifactId>kosame-services</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1</version>
 	<name>kosame-services</name>
 	<description>Dependency on all plugins from Kosame Plugins</description>
 	<properties>

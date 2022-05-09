@@ -50,13 +50,15 @@ public class Main extends KosameStarter {
             knownCommands.remove("bukkit:rl");
             knownCommands.remove("bukkit:reload");
         } catch (ReflectiveOperationException ex) {
-            getLogger().log(Level.SEVERE, "Cannot remove reload command: ", ex);
+            this.getLogger().log(Level.SEVERE, "Cannot remove reload command: ", ex);
         }
+        this.getLogger().info("Foi iniciado a dependencia de todos os KosamePlugins.");
+        this.getLogger().info("KosameServices pronto para a utilização!");
     }
 
     @Override
     public void disable() {
-        getLogger().log(Level.SEVERE, "O plugin KosameService foi desligado.");
+        this.getLogger().info("O plugin KosameService foi desligado.");
     }
 
     private void roles() {
