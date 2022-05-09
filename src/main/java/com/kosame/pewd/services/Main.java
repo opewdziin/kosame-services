@@ -14,15 +14,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 
-public class Service extends KosameStarter {
+public class Main extends KosameStarter {
 
-    private static Service service;
+    private static Main instance;
     public static final List<String> warnings = new ArrayList<>();
     public static HashMap<Player, Player> reply = new HashMap<>();
 
     @Override
     public void start() {
-        service = this;
+        instance = this;
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Service extends KosameStarter {
     }
 
 
-    public static Service getInstance() {
-        return service;
+    public static Main getInstance() {
+        return instance;
     }
 }
